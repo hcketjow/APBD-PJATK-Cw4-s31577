@@ -3,20 +3,23 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PJATK_APBD_Cw4_s31577.Models;
 
+[Table("PCs")]
 public class PCs
 {
     [Key]
     public int Id { get; set; }
-    
-    [MaxLength(50), Column(TypeName = "nvarchar(50)")]
-    public String Name { get; set; }
 
-    [MaxLength(5)]
-    public float Weight;
+    [Required, MaxLength(50)]
+    public string Name { get; set; }
 
-    public int Warranty;
-    
+    [Column(TypeName = "float(5)")]
+    public float Weight { get; set; }
+
+    public int Warranty { get; set; }
+
     public DateTime CreatedAt { get; set; }
-    
+
     public int Stock { get; set; }
+
+    public virtual ICollection<PCComponents> PCComponents { get; set; }
 }
