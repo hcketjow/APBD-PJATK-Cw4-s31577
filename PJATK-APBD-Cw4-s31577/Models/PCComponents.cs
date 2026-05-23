@@ -1,9 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore;
 
 namespace PJATK_APBD_Cw4_s31577.Models;
 
-[Table("PCComponents")]
+[PrimaryKey(nameof(PCId), nameof(ComponentCode))]
 public class PCComponents
 {
     public int PCId { get; set; }
